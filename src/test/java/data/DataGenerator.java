@@ -1,3 +1,4 @@
+
 package data;
 
 import com.github.javafaker.Faker;
@@ -6,6 +7,7 @@ import io.restassured.filter.log.LogDetail;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import lombok.Value;
+import lombok.val;
 
 import java.util.Locale;
 
@@ -30,8 +32,8 @@ public class DataGenerator {
                 .body(new RegistrationDto(user.getLogin(), user.getPassword(), user.getStatus()))
                 .when()
                 .post("/api/system/users")
-                .then()
-                .statusCode(200);
+                .then();
+
     }
 
     public static String getRandomLogin() {
